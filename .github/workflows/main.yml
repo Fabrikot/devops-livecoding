@@ -19,7 +19,7 @@ jobs:
           java-version: '17'
 
       - name: Build and test with Maven
-        run: mvn clean install
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Fabrikot_devops-livecoding -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         working-directory: simple-api
   build-and-push-docker-image:
     needs: test-backend
@@ -52,3 +52,4 @@ jobs:
           context: ./http-server
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-front:latest
           push: ${{ github.ref == 'refs/heads/main' }}
+
