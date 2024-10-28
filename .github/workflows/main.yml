@@ -24,7 +24,7 @@ jobs:
   build-and-push-docker-image:
     needs: test-backend
     runs-on: ubuntu-22.04
-
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2.5.0
@@ -38,18 +38,35 @@ jobs:
           context: ./simple-api
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-simple-api:latest
           push: ${{ github.ref == 'refs/heads/main' }}
+  build-and-push-database:
+    # run only when code is compiling and tests are passing
+    runs-on: ubuntu-22.04
+    if: github.ref =='refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.5.0
 
-      - name: Build image and push database
+      - name: Login to DockerHub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Publish to docker hub db
         uses: docker/build-push-action@v3
         with:
           context: ./database
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-database:latest
           push: ${{ github.ref == 'refs/heads/main' }}
+  build-and-push-front:
+    # run only when code is compiling and tests are passing
+    runs-on: ubuntu-22.04
+    if: github.ref =='refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.5.0
 
-      - name: Build image and push httpd
+      - name: Login to DockerHub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Publish to docker hub front
         uses: docker/build-push-action@v3
         with:
           context: ./http-server
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-front:latest
           push: ${{ github.ref == 'refs/heads/main' }}
-
