@@ -5,6 +5,8 @@
     name: my-api
     image: fabrikot/tp-devops-simple-api
     restart_policy: always
+    ports:
+      8080:8080
     networks:
       - name: my-network
     state: started

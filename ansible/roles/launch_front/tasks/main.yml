@@ -3,10 +3,10 @@
 - name: Launch my front
   docker_container:
     name: front
-    image: fabrikot/front-app:1.0
+    image: tploix/tp-devops-front-server:latest
     restart_policy: always
     ports:
-      - 4200:4200
+      - 90:90
     networks:
       - name: my-network
     state: started

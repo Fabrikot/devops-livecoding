@@ -5,6 +5,8 @@
     name: my-db
     image: fabrikot/tp-devops-database
     restart_policy: always
+    ports:
+      5432:5432
     networks:
       - name: my-network
     volumes:
