@@ -8,3 +8,4 @@
     - launch_db
     - launch_app
     - launch_proxy
+    - launch_front

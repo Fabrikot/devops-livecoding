@@ -1,0 +1,12 @@
+---
+# tasks file for roles/launch_front
+- name: Launch my front
+  docker_container:
+    name: front
+    image: fabrikot/front-app:1.0
+    restart_policy: always
+    ports:
+      - 4200:4200
+    networks:
+      - name: my-network
+    state: started

@@ -1,9 +1,9 @@
 ---
 # tasks file for roles/launch_proxy
-- name: Launch my front
+- name: Launch my proxy
   docker_container:
     name: httpd
-    image: fabrikot/tp-devops-front
+    image: fabrikot/tp-devops-front:latest
     restart_policy: always
     ports:
       - 80:80
