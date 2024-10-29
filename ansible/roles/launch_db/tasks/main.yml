@@ -3,7 +3,7 @@
 - name: Launch my db
   docker_container:
     name: my-db
-    image: fabrikot/tp-devops-database
+    image: tploix/tp-devops-database
     restart_policy: always
     ports:
       5432:5432

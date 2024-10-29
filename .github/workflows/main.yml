@@ -70,3 +70,19 @@ jobs:
           context: ./http-server
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-front:latest
           push: ${{ github.ref == 'refs/heads/main' }}
+  build-and-push-front-front:
+    # run only when code is compiling and tests are passing
+    runs-on: ubuntu-22.04
+    if: github.ref =='refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.5.0
+
+      - name: Login to DockerHub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Publish to docker hub front
+        uses: docker/build-push-action@v3
+        with:
+          context: ./devops-front
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/front:latest
+          push: ${{ github.ref == 'refs/heads/main' }}
