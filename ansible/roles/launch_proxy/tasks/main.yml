@@ -3,7 +3,7 @@
 - name: Launch my proxy
   docker_container:
     name: httpd
-    image: fabrikot/tp-devops-front:latest
+    image: fabrikot/tp-devops-front
     restart_policy: always
     ports:
       - 80:80

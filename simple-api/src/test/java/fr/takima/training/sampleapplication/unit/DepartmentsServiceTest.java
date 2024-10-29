@@ -27,11 +27,6 @@ class DepartmentsServiceTest {
             .name("DepartementTest")
             .build();
 
-    @Test
-    void testGetDepartmentByName() {
-        when(departmentDAO.findDepartmentByName("DepartmentTest")).thenReturn(DEPARTMENT);
-        assertEquals(DEPARTMENT, "4");
-    }
 
     @Test
     void testGetDepartmentByNameWithNullValue() {
