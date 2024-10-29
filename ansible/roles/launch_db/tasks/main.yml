@@ -1,0 +1,12 @@
+---
+# tasks file for roles/launch_db
+- name: Launch my db
+  docker_container:
+    name: my-db
+    image: fabrikot/tp-devops-database
+    restart_policy: always
+    networks:
+      - name: my-network
+    volumes:
+      - db-volume:/var/lib/postgresql/data
+    state: started

@@ -1,0 +1,10 @@
+---
+# tasks file for roles/launch_app
+- name: Launch my app
+  docker_container:
+    name: my-api
+    image: fabrikot/tp-devops-simple-api
+    restart_policy: always
+    networks:
+      - name: my-network
+    state: started
