@@ -35,6 +35,7 @@ Afin de travailler plus facilement en équipe, de déployer un système sur un s
 
 On utilise la commande suivante pour se connecter au projet SonarCloud avec les bons identifiants pour lui permettre d'analyser et de détecter de potentielles failles et erreurs.
 'run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Fabrikot_devops-livecoding -Dsonar.login=${{ secrets.SONAR_TOKEN }}' 
+
 ---------------------
 --------------------
 
@@ -212,7 +213,7 @@ Vérifie que docker est bien lancé.
 ```
 4. Launch front
 
-```
+```yml
 - name: Launch my front
   docker_container:
     name: front
@@ -226,7 +227,7 @@ Vérifie que docker est bien lancé.
 ```
 5. Create newtork (before)
 
-```
+```yml
 - name: Create Docker network
   docker_network:
     name: my-network
