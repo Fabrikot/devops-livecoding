@@ -34,7 +34,7 @@ Afin de travailler plus facilement en équipe, de déployer un système sur un s
 #### Document your quality gate configuration
 
 On utilise la commande suivante pour se connecter au projet SonarCloud avec les bons identifiants pour lui permettre d'analyser et de détecter de potentielles failles et erreurs.
-'run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Fabrikot_devops-livecoding -Dsonar.login=${{ secrets.SONAR_TOKEN }}' 
+`run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Fabrikot_devops-livecoding -Dsonar.login=${{ secrets.SONAR_TOKEN }}`
 
 ---------------------
 --------------------
