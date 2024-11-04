@@ -24,8 +24,6 @@ C'est une bibliothèque open source permettant de fournir des instances légère
     - **Setup JDK 17** : Utilise l'action `actions/setup-java@v3` pour installer le JDK 17 avec la distribution Amazon Corretto, qui est compatible avec de nombreuses applications Java.
     - **Build and test with Maven** : Exécute `mvn clean verify` dans le répertoire `simple-api` pour construire le projet et exécuter les tests.
 
-Traduit avec DeepL.com (version gratuite)
-
 
 #### For what purpose do we need to push docker images ?
 
